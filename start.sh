@@ -1,13 +1,20 @@
 #!/bin/bash
 set -e
 
+# Start SSH server on port 4400
+echo "Starting SSH Server on port 4400..."
+/usr/sbin/sshd -D -p 4400 &
+
+# Start NGINX
 echo "Starting NGINX..."
 nginx -g 'daemon off;' &
 
+# Start Open WebUI
 echo "Starting Open WebUI..."
 cd /opt/open-webui/backend
 python3 app.py &
 
+# Start Ollama Runner
 echo "Starting Ollama Runner..."
 MODEL_DIR="/workspace/models/blobs"
 SELECTED_MODEL="${OLLAMA_MODEL_BLOB:+$MODEL_DIR/$OLLAMA_MODEL_BLOB}"
