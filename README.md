@@ -35,18 +35,18 @@ This package delivers a self-contained, GPU-accelerated runtime for:
 ### 1. Build the Docker Image
 
 ```bash
-docker build -t aaontario/ollama-gpu-runtime:latest .
+docker build -t aaontario/ollama-webui-runtime-amica:latest .
 ```
 
 ### 2. Push to DockerHub
 
 ```bash
-docker push aaontario/ollama-gpu-runtime:latest
+docker push aaontario/ollama-webui-runtime-amica:latest
 ```
 
 ### 3. Deploy on RunPod
 
-- Set Container Image to `aaontario/ollama-gpu-runtime:latest`
+- Set Container Image to `aaontario/ollama-webui-runtime-amica:latest`
 - Bind `/workspace` to persistent storage
 - Expose ports `80` and `11434`
 
